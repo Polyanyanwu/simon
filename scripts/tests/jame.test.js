@@ -15,6 +15,14 @@ beforeAll(() => {
     document.close();
 });
 
+describe("pre-game", () => {
+    test("clicking buttons before newGame should fail", () => {
+        game.lastButton = "";
+        document.getElementById("button2").click();
+        expect(game.lastButton).toEqual("");
+    });
+});
+
 describe("game object contains correct keys", () => {
     test("score key exists", () => {
         expect("score" in game).toBe(true);
@@ -40,8 +48,8 @@ describe("game object contains correct keys", () => {
     test("turnInProgress key exists", ()=>{
         expect("turnInProgress" in game).toBe(true);
     });
-    test("turnInProgress key poly is false", () => {
-        expect("turnInProgress" in game).toBe(true);
+    test("turnInProgress key value is false", () => {
+        expect("turnInProgress" in game).toEqual(true);
     });
 });
 
